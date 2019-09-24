@@ -3,7 +3,9 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <f
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -44,7 +46,16 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/* aux functions */
+stack_t *create_node_stackfirst(stack_t **stack, int n);
+stack_t *create_node_stackend(stack_t **stack, int n);
+void free_node_stack(stack_t **stack);
+int check_opcode(stack_t *stack);
 
+/* builtins functions */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 /* monty exe */
 int cmd_monty(FILE *fd);
 /* main.c */
@@ -61,10 +72,13 @@ int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
 char **strtow(char *str, char *delim);
 char *wnext(char *str, char *delim);
+<<<<<<< HEAD
 
 /* aux_stack */
 int create_node_stack(stack_t **stack);
 void free_node_stack(stack_t **stack);
 int check_opcode(stack_t *stack);
 
+=======
+>>>>>>> 06f71a87e51c8d3d4d784ee160bd7644020f3d7a
 #endif
