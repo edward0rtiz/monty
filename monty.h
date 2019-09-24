@@ -50,7 +50,7 @@ int cmd_monty(FILE *fd);
 /* main.c */
 int main(int argc, char **argv);
 /* get_builtin */
-void (*get_builtin(char *opcode))(stack_t**, unisgned int);
+void (*get_builtin(char *opcode))(stack_t**, unsigned int);
 /* aux tokens */
 void free_tok(void);
 unsigned int array_len(void);
@@ -59,5 +59,12 @@ int no_line(char *line, char *delim);
 int check_delim(char str, char *delim);
 int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
-int **strtow(char *str, char *delim);
+char **strtow(char *str, char *delim);
 char *wnext(char *str, char *delim);
+
+/* aux_stack */
+int create_node_stack(stack_t **stack);
+void free_node_stack(stack_t **stack);
+int check_opcode(stack_t *stack);
+
+#endif

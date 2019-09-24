@@ -46,7 +46,7 @@ int cmd_monty(FILE *fd)
 	if (ln && *ln == 0)
 	{
 		free(ln);
-		return (NULL); /*error */
+		return (0); /*error */
 	}
 	free(ln);
 	return (exit_s);

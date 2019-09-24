@@ -7,7 +7,7 @@ int create_node_stack(stack_t **stack)
 	node_stack = malloc(sizeof(stack_t));
 	if (node_stack == NULL)
 /* has to be an error of malloc */
-		return (NULL);
+		return (0);
 
 	node_stack->n = STACK;
 	node_stack->prev = NULL;
