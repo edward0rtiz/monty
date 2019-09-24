@@ -3,7 +3,9 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <f
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -46,5 +48,12 @@ typedef struct instruction_s
 } instruction_t;
 
 /* aux functions */
+stack_t *create_node_stackfirst(stack_t **stack, int n);
+stack_t *create_node_stackend(stack_t **stack, int n);
+void free_node_stack(stack_t **stack);
+int check_opcode(stack_t *stack);
 
-
+/* builtins functions */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
