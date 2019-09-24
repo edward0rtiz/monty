@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char **token = NULL;
+char *token = NULL;
 
 int main(int argc, char **argv)
 {

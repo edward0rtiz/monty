@@ -6,8 +6,8 @@ void free_tok(void)
 
 	if (token == NULL)
 		return;
-	for (i = 0; token[i]; i++)
-		free(token[i]);
+	for (i = 0; token; i++)
+		free(token);
 
 	free (token);
 }

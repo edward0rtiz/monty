@@ -19,14 +19,6 @@ int stderr_fopen(char *filename)
 	return (EXIT_FAILURE);
 }
 
-int stderr_unknown(char *opcode, unsigned int line_number)
-{
-	fprintf(stderr, "L%u: unknown instruction %s\n",
-		line_number, opcode);
-	return (EXIT_FAILURE);
-}
-
-
 int stderr_int(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);

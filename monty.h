@@ -15,7 +15,7 @@
 #define STACK 0
 #define DELIM " \n\t\a\b"
 
-extern char **token;
+extern char *token;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -62,18 +62,18 @@ int cmd_monty(FILE *fd);
 /* main.c */
 int main(int argc, char **argv);
 /* get_builtin */
-void *get_builtin(char **token, stack_t **stack, unsigned int line_number);
+void *get_builtin(char *token, stack_t **stack, unsigned int line_number);
 /* aux tokens */
 void free_tok(void);
 unsigned int array_len(void);
 int no_line(char *line, char *delim);
-/* aux_str */
+/* aux_str 
 int check_delim(char stream, char *delim);
 int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
 char **strtow(char *str, char *delim);
 char *wnext(char *str, char *delim);
-
+*/
 /* aux_stack */
 /*int create_node_stack(stack_t **stack);*/
 void free_node_stack(stack_t **stack);

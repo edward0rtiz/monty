@@ -11,7 +11,7 @@ int cmd_monty(FILE *fd)
 	while (getline(&ln, &len, fd) != -1)
 	{
 		lnum++;
-		token = strtow(ln, DELIM);
+		token = strtok(ln, DELIM);
 		if (token == NULL)
 		{
 			if (no_line(ln, DELIM))
@@ -23,11 +23,10 @@ int cmd_monty(FILE *fd)
 		if (get_builtin(token, &stack, lnum) == NULL)
 		{
 			free_node_stack(&stack);
-			exit_s = stderr_unknown(token[0], lnum);
 			free_tok();
 			break;
 		}
-		tok_len = array_len();
+		/*tok_len = array_len();
 				if (array_len() != tok_len)
 		{
 			if (token && token[tok_len])
@@ -36,8 +35,7 @@ int cmd_monty(FILE *fd)
 				exit_s = EXIT_FAILURE;
 			free_tok();
 			break;
-		}
-		free_tok();
+			}*/
 	}
 	free_node_stack(&stack);
 	if (ln && *ln == 0)
