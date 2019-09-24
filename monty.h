@@ -56,7 +56,7 @@ int check_opcode(stack_t *stack);
 /* builtins functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
+/*void pint(stack_t **stack, unsigned int line_number);*/
 /* monty exe */
 int cmd_monty(FILE *fd);
 /* main.c */
@@ -68,7 +68,7 @@ void free_tok(void);
 unsigned int array_len(void);
 int no_line(char *line, char *delim);
 /* aux_str */
-int check_delim(char str, char *delim);
+int check_delim(char stream, char *delim);
 int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
 char **strtow(char *str, char *delim);
@@ -79,12 +79,15 @@ char *wnext(char *str, char *delim);
 void free_node_stack(stack_t **stack);
 int check_opcode(stack_t *stack);
 
-/* test */
-/*void get_pall(stack_t **stack, unsigned int line_number);*/
-/*void push(stack_t **stack, unsigned int line_number);*/
 stack_t *create_node_stackfirst(stack_t **stack, int n);
 stack_t *create_node_stackend(stack_t **stack, int n);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
+
+/*error*/
+int stderr_usage(void);
+int stderr_malloc(void);
+int stderr_fopen(char *fd);
+int stderr_unknown(char *opcode, unsigned int line_number);
+int stderr_int(unsigned int line_number);
+
 
 #endif

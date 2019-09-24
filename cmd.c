@@ -8,43 +8,42 @@ int cmd_monty(FILE *fd)
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
-	while (getline(&ln, &len, fd))
+	while (getline(&ln, &len, fd) != -1)
 	{
 		lnum++;
 		token = strtow(ln, DELIM);
-		if (opcodetk == NULL)
+		if (token == NULL)
 		{
 			if (no_line(ln, DELIM))
 				continue;
 			free_node_stack(&stack);
-			return (0); /*null error */
+			return (stderr_malloc());
 		}
-		get_builtin(opcodetk, &stack, lnum);
-		if (get_builtin(&stack, lnum) == NULL)
+		get_builtin(token, &stack, lnum);
+		if (get_builtin(token, &stack, lnum) == NULL)
 		{
 			free_node_stack(&stack);
-			exit_s; /* error check */
-			free_tok(); /* free token */
+			exit_s = stderr_unknown(token[0], lnum);
+			free_tok();
 			break;
 		}
 		tok_len = array_len();
-		get_builtin(token, &stack, lnum);
-		if (array_len() != tok_len)
+				if (array_len() != tok_len)
 		{
-			if (opcodetk && opcodetk[tok_len])
-				exit_s = atoi(opcodetk[tok_len]);
+			if (token && token[tok_len])
+				exit_s = atoi(token[tok_len]);
 			else
 				exit_s = EXIT_FAILURE;
-			free_tok(); /*free tok */
+			free_tok();
 			break;
 		}
-		free_tok(); /*free tok */
+		free_tok();
 	}
 	free_node_stack(&stack);
 	if (ln && *ln == 0)
 	{
 		free(ln);
-		return (0); /*error */
+		return (stderr_malloc());
 	}
 	free(ln);
 	return (exit_s);

@@ -7,13 +7,13 @@
  * Return: 1 (success) 0 (failure)
  */
 
-int check_delim(char str, char *delim)
+int check_delim(char stream, char *delim)
 {
 	int i = 0;
 
 	while (delim[i])
 	{
-		if (delim[i] == str)
+		if (delim[i] == stream)
 			return (1);
 		i++;
 	}
@@ -99,9 +99,7 @@ char *wnext(char *str, char *delim)
 char **strtow(char *str, char *delim)
 {
 	char **word = NULL;
-	int wc;
-	int wl;
-	int i = 0;
+	int wc, wl, i = 0;
 	int j;
 
 	if (str == NULL || !*str)

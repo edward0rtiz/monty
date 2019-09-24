@@ -4,18 +4,18 @@ void free_tok(void)
 {
 	size_t i = 0;
 
-	if (opcodetk == NULL)
+	if (token == NULL)
 		return;
-	for (i = 0; opcodetk[i]; i++)
-		free(opcodetk[i]);
+	for (i = 0; token[i]; i++)
+		free(token[i]);
 
-	free (opcodetk);
+	free (token);
 }
 unsigned int array_len(void)
 {
 	unsigned int token_len = 0;
 
-	while (opcodetk[token_len])
+	while (token[token_len])
 		token_len++;
 	return (token_len);
 }
