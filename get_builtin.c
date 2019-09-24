@@ -4,7 +4,8 @@ void (*get_builtin(char *opcode))(stack_t**, unsigned int)
 {
 	instruction_t op_built[] = {
 		{ "push", push },
-		{ "pall", pall },
+		/*	{ "pall", pall }, */
+		{ "pall", pall},
 		{ NULL, NULL }
 	};
 	int i;

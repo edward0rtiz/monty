@@ -46,6 +46,7 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 /* aux functions */
 stack_t *create_node_stackfirst(stack_t **stack, int n);
 stack_t *create_node_stackend(stack_t **stack, int n);
@@ -72,13 +73,18 @@ int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
 char **strtow(char *str, char *delim);
 char *wnext(char *str, char *delim);
-<<<<<<< HEAD
 
 /* aux_stack */
-int create_node_stack(stack_t **stack);
+/*int create_node_stack(stack_t **stack);*/
 void free_node_stack(stack_t **stack);
 int check_opcode(stack_t *stack);
 
-=======
->>>>>>> 06f71a87e51c8d3d4d784ee160bd7644020f3d7a
+/* test */
+/*void get_pall(stack_t **stack, unsigned int line_number);*/
+/*void push(stack_t **stack, unsigned int line_number);*/
+stack_t *create_node_stackfirst(stack_t **stack, int n);
+stack_t *create_node_stackend(stack_t **stack, int n);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
 #endif

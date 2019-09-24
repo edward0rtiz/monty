@@ -1,14 +1,11 @@
 #include "monty.h"
 
-/*stack_t *create_node_stackfirst(stack_t **stack, int n)
+stack_t *create_node_stackfirst(stack_t **stack, int n)
 {
 	stack_t *newnode_stack;
 
 	if (stack == NULL)
 /* has to be an error of malloc */
-
-/*		return (0);
-=======
 		return (NULL);
 	newnode_stack = malloc(sizeof(stack_t));
 	if (newnode_stack == NULL)
@@ -19,7 +16,7 @@
 	*stack = newnode_stack;
 	return (newnode_stack);
 }
->>>>>>> 06f71a87e51c8d3d4d784ee160bd7644020f3d7a
+
 
 stack_t *create_node_stackend(stack_t **stack, int n)
 {
@@ -28,7 +25,7 @@ stack_t *create_node_stackend(stack_t **stack, int n)
 
 	if (stack == NULL)
 	/* has to be an error of malloc */
-/*		return (NULL);
+		return (NULL);
 	newnode_stack = malloc(sizeof(stack_t));
 	if (newnode_stack == NULL)
 		return NULL;
@@ -39,7 +36,29 @@ stack_t *create_node_stackend(stack_t **stack, int n)
 	newnode_stack->prev = temp;
 	newnode_stack->next = NULL;
 	return (newnode_stack);
-	}*/
+}
+
+/*int create_node_stack(stack_t **stack)
+{
+	stack_t *p;
+
+	p = malloc(sizeof(stack_t));
+	if (p == NULL)
+		return (0);
+
+	p->n = STACK;
+	p->prev = NULL;
+	p->next = NULL;
+
+	*stack = p;
+
+	return (EXIT_SUCCESS);
+}
+*/
+
+
+
+
 
 void free_node_stack(stack_t **stack)
 {

@@ -1,11 +1,5 @@
 #include "monty.h"
 
-int check_delim(char str, char *delim);
-int wstrlen(char *str, char *delim);
-int wcounter(char *str, char *delim);
-char **strtow(char *str, char *delim);
-char *wnext(char *str, char *delim);
-
 /**
  * check_delim - checks if char is a delimitor
  * @str: type char 
