@@ -46,7 +46,6 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
 /* aux functions */
 stack_t *create_node_stackfirst(stack_t **stack, int n);
 stack_t *create_node_stackend(stack_t **stack, int n);
@@ -57,3 +56,19 @@ int check_opcode(stack_t *stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+/* monty exe */
+int cmd_monty(FILE *fd);
+/* main.c */
+int main(int argc, char **argv);
+/* get_builtin */
+void (*get_builtin(char *opcode))(stack_t**, unisgned int);
+/* aux tokens */
+void free_tok(void);
+unsigned int array_len(void);
+int no_line(char *line, char *delim);
+/* aux_str */
+int check_delim(char str, char *delim);
+int wstrlen(char *str, char *delim);
+int wcounter(char *str, char *delim);
+int **strtow(char *str, char *delim);
+char *wnext(char *str, char *delim);
