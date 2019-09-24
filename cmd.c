@@ -1,4 +1,4 @@
-#include "monty"
+#include "monty.h"
 
 int cmd_monty(FILE *fd)
 {
@@ -8,33 +8,31 @@ int cmd_monty(FILE *fd)
 	stack_t *stack = NULL;
 	void (*op_function)(stack_t **, unsigned int);
 
-	if (create_node_stack(&stack) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
 	while (getline(&ln, &len, fd))
 	{
 		lnum++;
-		opcodetk = **strtow(ln, DELIM);
+		opcodetk = strtow(ln, DELIM);
 		if (opcodetk == NULL)
 		{
 			if (no_line(ln, DELIM))
 				continue;
 			free_node_stack(&stack);
-			return (NULL) /*null error */
+			return (0); /*null error */
 		}
 		op_function = get_builtin(opcodetk[0]);
 		if (op_function == NULL)
 		{
 			free_node_stack(&stack);
 			exit_s; /* error check */
-			free_tok; /* free token */
+			free_tok(); /* free token */
 			break;
 		}
-		token_len = array_len();
+		tok_len = array_len();
 		op_function(&stack, lnum);
-		if (array_len() != token_len)
+		if (array_len() != tok_len)
 		{
-			if (opcodetk && opcodetk[token_len])
-				exit_s = atoi(opcodetk[token_len]);
+			if (opcodetk && opcodetk[tok_len])
+				exit_s = atoi(opcodetk[tok_len]);
 			else
 				exit_s = EXIT_FAILURE;
 			free_tok(); /*free tok */
@@ -46,7 +44,7 @@ int cmd_monty(FILE *fd)
 	if (ln && *ln == 0)
 	{
 		free(ln);
-		return (NULL); /*error */
+		return (0); /*error */
 	}
 	free(ln);
 	return (exit_s);

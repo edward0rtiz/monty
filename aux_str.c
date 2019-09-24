@@ -1,9 +1,9 @@
 #include "monty.h"
 
-int check_delim(char ch, char *delim);
+int check_delim(char str, char *delim);
 int wstrlen(char *str, char *delim);
 int wcounter(char *str, char *delim);
-int **strtow(char *str, char *delim);
+char **strtow(char *str, char *delim);
 char *wnext(char *str, char *delim);
 
 /**
@@ -19,7 +19,7 @@ int check_delim(char str, char *delim)
 
 	while (delim[i])
 	{
-		if (delim[i] == ch)
+		if (delim[i] == str)
 			return (1);
 		i++;
 	}
@@ -126,8 +126,8 @@ char **strtow(char *str, char *delim)
 		{
 			str = wnext(str, delim);
 		}
-		words[i] = malloc((wl + 1) * sizeof(char));
-		if (words[i] == NULL)
+		word[i] = malloc((wl + 1) * sizeof(char));
+		if (word[i] == NULL)
 		{
 			while (i >= 0)
 			{
@@ -143,7 +143,7 @@ char **strtow(char *str, char *delim)
 			word[i][j] = *(str + j);
 			j++;
 		}
-		words[i][j] = '\0';
+		word[i][j] = '\0';
 		str = wnext(str, delim);
 		i++;
 	}
