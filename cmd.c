@@ -6,12 +6,12 @@ int cmd_monty(FILE *fd)
 	unsigned int lnum = 0, tok_len = 0;
 	char *ln = NULL;
 	stack_t *stack = NULL;
-	void (*op_function)(stack_t **, unsigned int);
+	unsigned int line_number = 0;
 
 	while (getline(&ln, &len, fd))
 	{
 		lnum++;
-		opcodetk = strtow(ln, DELIM);
+		token = strtow(ln, DELIM);
 		if (opcodetk == NULL)
 		{
 			if (no_line(ln, DELIM))
@@ -19,8 +19,8 @@ int cmd_monty(FILE *fd)
 			free_node_stack(&stack);
 			return (0); /*null error */
 		}
-		op_function = get_builtin(opcodetk[0]);
-		if (op_function == NULL)
+		get_builtin(opcodetk, &stack, lnum);
+		if (get_builtin(&stack, lnum) == NULL)
 		{
 			free_node_stack(&stack);
 			exit_s; /* error check */
@@ -28,7 +28,7 @@ int cmd_monty(FILE *fd)
 			break;
 		}
 		tok_len = array_len();
-		op_function(&stack, lnum);
+		get_builtin(token, &stack, lnum);
 		if (array_len() != tok_len)
 		{
 			if (opcodetk && opcodetk[tok_len])
