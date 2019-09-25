@@ -4,17 +4,17 @@ int cmd_monty(FILE *fd)
 {
 	size_t len = 0, exit_s = EXIT_SUCCESS;
 	unsigned int lnum = 0, tok_len = 0;
-	char *ln = NULL;
+	char *line = NULL;
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 
-	while (getline(&ln, &len, fd) != -1)
+	while (getline(&line, &len, fd) != -1)
 	{
 		lnum++;
-		token = strtok(ln, DELIM);
+		token = strtok(line, DELIM);
 		if (token == NULL)
 		{
-			if (no_line(ln, DELIM))
+			if (no_line(line, DELIM))
 				continue;
 			free_node_stack(&stack);
 			return (stderr_malloc());
@@ -38,11 +38,11 @@ int cmd_monty(FILE *fd)
 			}*/
 	}
 	free_node_stack(&stack);
-	if (ln && *ln == 0)
+	if (line && *line == 0)
 	{
-		free(ln);
+		free(line);
 		return (stderr_malloc());
 	}
-	free(ln);
+	free(line);
 	return (exit_s);
 }
