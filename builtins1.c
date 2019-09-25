@@ -11,8 +11,9 @@ void push(stack_t **stack, unsigned int line_number)
 {
 
 	int n = 0;
-
-	if (!_isdigit(token2) || stack == NULL)
+	if (token2 == NULL)
+		stderr_int(line_number);
+	if (!_isdigit() || stack == NULL)
 		stderr_int(line_number);
 	n = atoi(token2);
 	if (*stack  == NULL)
