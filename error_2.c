@@ -44,3 +44,14 @@ int pchar_e(unsigned int line_number, char *msg)
 	fprintf(stderr, "L%u: can't pchar, %s\n", line_number, msg);
 	return (EXIT_FAILURE);
 }
+
+/**
+* div_e - error for div by 0.
+* @line_number: line number of the instruction.
+* Return: EXIT_FAILURE
+*/
+int div_e(unsigned int line_number)
+{
+	fprintf(stderr, "L%u: division by zero\n", line_number);
+	return (EXIT_FAILURE);
+}

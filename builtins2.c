@@ -15,9 +15,9 @@ void pop(stack_t **stack, unsigned int line_number)
 	int i = 0, j = 0, flag = 0;
 
 	if (stack == NULL)
-		return;
+		pop_e(line_number);
 	if (*stack == NULL)
-		return;
+		pop_e(line_number);
 	temp = *stack;
 	while (temp->next != NULL)
 	{
@@ -77,7 +77,7 @@ void add(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		return;
+		op_e(line_number, "add");
 	else
 	{
 		temp2->n = temp2->n + temp->n;
@@ -120,7 +120,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		return;
+		op_e(line_number, "sub");
 	else
 	{
 		temp2->n = temp2->n - temp->n;
@@ -162,7 +162,7 @@ void mul(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		return;
+		op_e(line_number, "mul");
 	else
 	{
 		temp2->n = temp2->n * temp->n;

@@ -79,3 +79,23 @@ void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
 		i--;
 	}
 }
+
+/**
+ * _isdigit - Entry point
+ *@token: charater to check
+ * Return: if is digit  or not, return 1 else 0
+ */
+int _isdigit(char *token)
+{
+	int i = 0;
+
+	while (token)
+	{
+		if (token[i] >= '0' && token[i] <= '9')
+			return (1);
+		else
+			return (0);
+		i++;
+	}
+	return (0);
+}
