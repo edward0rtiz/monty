@@ -20,7 +20,11 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		return (stderr_usage());
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		return (EXIT_FAILURE);
+	}
+
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 		return (stderr_fopen(argv[1]));

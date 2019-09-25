@@ -13,6 +13,11 @@ void push(stack_t **stack, unsigned int line_number)
 	int n = 0;
 
 	n = atoi(token2);
+	if ( n == 0 || stack == NULL)
+	{
+		tokerr(stderr_int(line_number));
+		return;
+	}
 	if (*stack  == NULL)
 	{
 		create_node_stackfirst(stack, n);
