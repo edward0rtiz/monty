@@ -20,10 +20,10 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		return (stderr_usage());
+		stderr_usage();
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
-		return (stderr_fopen(argv[1]));
+		stderr_fopen(argv[1]);
 	line_size = getline(&line_buf, &line_buf_size, fd);
 	while (line_size >= 0)
 	{

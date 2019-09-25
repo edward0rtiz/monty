@@ -75,13 +75,13 @@ void mod_m(stack_t **stack, unsigned int line_number);
 
 
 /*error*/
-int stderr_usage(void);
-int stderr_malloc(void);
-int stderr_fopen(char *fd);
-int stderr_int(unsigned int line_number);
-int stderr_unknown(char *token, unsigned int line_number);
-int div_e(unsigned int line_number);
-int op_e(unsigned int line_number, char *op);
+void stderr_usage(void);
+void stderr_malloc(void);
+void stderr_fopen(char *fd);
+void stderr_int(unsigned int line_number);
+void stderr_unknown(char *token, unsigned int line_number);
+void div_e(unsigned int line_number);
+void op_e(unsigned int line_number, char *op);
 /* TEST F */
 
 void tokerr(int error_code);
@@ -90,9 +90,9 @@ char *get_int(int num);
 unsigned int abs_m(int);
 int len_buff_uint(unsigned int num, unsigned int base);
 void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
-int pop_e(unsigned int line_number);
-int pint_e(unsigned int line_number);
-int pchar_e(unsigned int line_number, char *msg);
+void pop_e(unsigned int line_number);
+void pint_e(unsigned int line_number);
+void pchar_e(unsigned int line_number, char *msg);
 int _isdigit(char *token);
 
 /* UNUSED F
