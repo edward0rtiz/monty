@@ -63,8 +63,11 @@ void pint(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 
 	if (stack == NULL)
+	{
+		tokerr(pint_e(line_number)); /*ed*/
 		return;
-	temp = *stack;
+	}
+       	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
 	printf("%d", temp->n);
@@ -87,6 +90,11 @@ void swap(stack_t **stack, unsigned int line_number)
 	int j = 0;
 	int i = 0;
 
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		tokerr(op_e(line_number, "swap"));
+		return;
+	}
 	if (stack == NULL)
 		return;
 	temp = *stack;
@@ -109,4 +117,16 @@ void swap(stack_t **stack, unsigned int line_number)
 		temp->next = temp2;
 		temp->prev = temp3;
 	}
+}
+/**
+ * nop - does not do anything
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ *
+ * Return: No return
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
