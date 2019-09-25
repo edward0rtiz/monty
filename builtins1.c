@@ -12,6 +12,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 	int n = 0;
 
+	if (!_isdigit(token2) || stack == NULL)
+		stderr_int(line_number);
 	n = atoi(token2);
 	if (*stack  == NULL)
 	{
@@ -36,9 +38,9 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 
 	if (stack == NULL)
-		return;
+		stderr_int(line_number);
 	if (*stack == NULL)
-		return;
+		stderr_int(line_number);
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -64,9 +66,9 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	stack_t *temp = NULL;
 
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
-		tokerr(pint_e(line_number)); /*ed*/
+		tokerr(pint_e(line_number));
 		return;
 	}
 	temp = *stack;
@@ -93,11 +95,8 @@ void swap(stack_t **stack, unsigned int line_number)
 	int j = 0;
 	int i = 0;
 
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-	{
-		tokerr(op_e(line_number, "swap"));
-		return;
-	}
+	if (*stack == NULL || stack == NULL)
+		op_e(line_number, "swap");
 	if (stack == NULL)
 		return;
 	temp = *stack;
@@ -120,6 +119,8 @@ void swap(stack_t **stack, unsigned int line_number)
 		temp->next = temp2;
 		temp->prev = temp3;
 	}
+	else
+		op_e(line_number, "swap");
 }
 /**
  * nop - does not do anything

@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <ctype.h>
 
 
 #define QUEUE 1
@@ -56,8 +56,7 @@ stack_t *create_node_stackend(stack_t **stack, int n);
 void free_node_stack(stack_t **stack);
 
 /* get_builtin */
-void *get_builtin(char *token, stack_t **stack, unsigned int line_number);
-
+int *get_builtin(char *token, stack_t **stack, unsigned int line_number);
 /* builtins functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -79,10 +78,10 @@ void mod_m(stack_t **stack, unsigned int line_number);
 int stderr_usage(void);
 int stderr_malloc(void);
 int stderr_fopen(char *fd);
-int stderr_unknown(char *opcode, unsigned int line_number);
 int stderr_int(unsigned int line_number);
-
-
+int stderr_unknown(char *token, unsigned int line_number);
+int div_e(unsigned int line_number);
+int op_e(unsigned int line_number, char *op);
 /* TEST F */
 
 void tokerr(int error_code);
@@ -94,7 +93,7 @@ void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
 int pop_e(unsigned int line_number);
 int pint_e(unsigned int line_number);
 int pchar_e(unsigned int line_number, char *msg);
-
+int _isdigit(char *token);
 
 /* UNUSED F
 void pop(stack_t **stack, unsigned int line_number);
