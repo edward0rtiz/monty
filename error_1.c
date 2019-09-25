@@ -40,3 +40,15 @@ int stderr_int(unsigned int line_number)
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
 	return (EXIT_FAILURE);
 }
+
+/**
+ * stderr_unknown - unknown error messagess.
+ * @line_number: line number of the instruction.
+ * @token: type pointer char of the instruction.
+ * Return: EXIT_FAILURE
+ */
+int stderr_unknown(char *token, unsigned int line_number)
+{
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
+	return (EXIT_FAILURE);
+}

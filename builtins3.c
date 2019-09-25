@@ -32,9 +32,11 @@ void div_m(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		return;
+		op_e(line_number, "div");
 	else
 	{
+		if (temp->n == 0)
+			div_e(line_number);
 		temp2->n = temp2->n / temp->n;
 		temp2->next = NULL;
 		free(temp);
@@ -77,7 +79,7 @@ void mod_m(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		return;
+		op_e(line_number, "mod");
 	else
 	{
 		temp2->n = temp2->n % temp->n;

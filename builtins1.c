@@ -12,6 +12,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 	int n = 0;
 
+	if (!_isdigit(token2) || stack == NULL)
+		stderr_int(line_number);
 	n = atoi(token2);
 	if ( n == 0 || stack == NULL)
 	{
@@ -41,9 +43,9 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 
 	if (stack == NULL)
-		return;
+		stderr_int(line_number);
 	if (*stack == NULL)
-		return;
+		stderr_int(line_number);
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -69,10 +71,15 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	stack_t *temp = NULL;
 
-	if (stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
+<<<<<<< HEAD
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		return (EXIT_FAILURE);
+=======
+		tokerr(pint_e(line_number));
+		return;
+>>>>>>> c550f6139c4aa62f0bcb7a27baedab1e6ef564f1
 	}
 	temp = *stack;
 	while (temp->next != NULL)
@@ -98,12 +105,17 @@ void swap(stack_t **stack, unsigned int line_number)
 	int j = 0;
 	int i = 0;
 
+<<<<<<< HEAD
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't %s, stack too short\n",
 			line_number, "swap");
 		return (EXIT_FAILURE);
 	}
+=======
+	if (*stack == NULL || stack == NULL)
+		op_e(line_number, "swap");
+>>>>>>> c550f6139c4aa62f0bcb7a27baedab1e6ef564f1
 	if (stack == NULL)
 		return;
 	temp = *stack;
@@ -126,6 +138,8 @@ void swap(stack_t **stack, unsigned int line_number)
 		temp->next = temp2;
 		temp->prev = temp3;
 	}
+	else
+		op_e(line_number, "swap");
 }
 /**
  * nop - does not do anything
