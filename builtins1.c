@@ -12,7 +12,9 @@ void push(stack_t **stack, unsigned int line_number)
 
 	int n = 0;
 
-	if (!_isdigit(token2) || stack == NULL)
+	if (token2 == NULL)
+		stderr_int(line_number);
+	if (!_isdigit() || stack == NULL)
 		stderr_int(line_number);
 	n = atoi(token2);
 	if ( n == 0 || stack == NULL)
@@ -44,8 +46,10 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL)
 		stderr_int(line_number);
-	if (*stack == NULL)
+	if (*stack == NULL && line_number == 1)
 		stderr_int(line_number);
+	if (*stack == NULL && line_number != 1)
+		exit(EXIT_SUCCESS);
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
