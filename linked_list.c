@@ -31,6 +31,7 @@ stack_t *create_node_stackend(stack_t **stack, int n)
 	while (temp->next != NULL)
 		temp = temp->next;
 	temp->next = newnode_stack;
+	newnode_stack->n = n;
 	newnode_stack->prev = temp;
 	newnode_stack->next = NULL;
 	return (newnode_stack);
