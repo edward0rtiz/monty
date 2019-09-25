@@ -14,8 +14,7 @@ void div_m(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "div"));
-		return;
+		op_e(line_number, "div");
 	}
 
 	temp = *stack;
@@ -61,8 +60,7 @@ void mod_m(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "mod"));
-		return;
+		op_e(line_number, "mod");
 	}
 
 	temp = *stack;

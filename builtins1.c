@@ -68,7 +68,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		tokerr(pint_e(line_number));
+		pint_e(line_number);
 		return;
 	}
 	temp = *stack;
