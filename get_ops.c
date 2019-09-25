@@ -5,6 +5,10 @@ void *get_builtin(char *token, stack_t **stack, unsigned int line_number)
 	instruction_t op_built[] = {
 		{ "push", push },
 		{ "pall", pall},
+		{ "pop", pop },
+		{ "add", add },
+		{ "nop", nop },
+		{ "sub", sub },
 		{ NULL, NULL }
 	};
 	int i;

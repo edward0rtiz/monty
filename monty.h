@@ -56,6 +56,12 @@ int check_opcode(stack_t *stack);
 /* builtins functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+
+
 /*void pint(stack_t **stack, unsigned int line_number);*/
 /* monty exe */
 int cmd_monty(FILE *fd);
@@ -77,7 +83,7 @@ char *wnext(char *str, char *delim);
 /* aux_stack */
 /*int create_node_stack(stack_t **stack);*/
 void free_node_stack(stack_t **stack);
-int check_opcode(stack_t *stack);
+
 
 stack_t *create_node_stackfirst(stack_t **stack, int n);
 stack_t *create_node_stackend(stack_t **stack, int n);
@@ -89,5 +95,7 @@ int stderr_fopen(char *fd);
 int stderr_unknown(char *opcode, unsigned int line_number);
 int stderr_int(unsigned int line_number);
 
+
+void tokerr(int error_code);
 
 #endif
