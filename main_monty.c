@@ -1,18 +1,35 @@
 #include "monty.h"
 
-char **token = NULL;
+char *token2 = NULL;
+
 
 int main(int argc, char **argv)
 {
 	FILE *fd = NULL;
-	int exit_val = EXIT_SUCCESS;
+	char *line_buf = NULL;
+	char *token = NULL;
+       	size_t line_buf_size = 0;
+	int line_number = 0;
+	ssize_t line_size;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 		return (stderr_usage());
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 		return (stderr_fopen(argv[1]));
-	exit_val = cmd_monty(fd);
+	line_size = getline(&line_buf, &line_buf_size, fd);
+	while (line_size >= 0)
+	{
+		line_number++;
+		token = strtok(line_buf, DELIM);
+		token2 = strtok(NULL, DELIM);
+		get_builtin(token, &stack, line_number);
+		line_size = getline(&line_buf, &line_buf_size, fd);
+
+	}
+	free(line_buf);
+	line_buf = NULL;
 	fclose(fd);
-	return (exit_val);
+	return (EXIT_SUCCESS);
 }

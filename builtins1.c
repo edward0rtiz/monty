@@ -10,16 +10,16 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 
-	stack_t *node = NULL;
 	int n = 0;
 
+	n = atoi(token2);
 	if (*stack  == NULL)
 	{
-		node = create_node_stackfirst(&node, line_number);
+		create_node_stackfirst(stack, n);
 	}
 	else
 	{
-		node = create_node_stackend(&node, line_number);
+		create_node_stackend(stack, n);
 	}
 }
 
@@ -46,6 +46,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		temp = temp->prev;
 		printf("\n");
 	}
+	printf("%d", temp->n);
 }
 
 

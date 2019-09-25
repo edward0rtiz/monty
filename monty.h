@@ -15,7 +15,11 @@
 #define STACK 0
 #define DELIM " \n\t\a\b"
 
+<<<<<<< HEAD
 extern char **token;
+=======
+extern char *token2;
+>>>>>>> 9431e94e24aa99933a9d37f73ff373e5481ba9fe
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

@@ -14,7 +14,9 @@ void *get_builtin(char **token, stack_t **stack, unsigned int line_number)
 	for (i = 0; op_built[i].opcode; i++)
 	{
 		if (strcmp(argumentos, op_built[i].opcode) == 0)
+		{
 			op_built[i].f(stack, line_number);
-		break;
+			break;
+		}
 	}
 }
