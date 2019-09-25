@@ -37,6 +37,8 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL)
 		return;
+	if (*stack == NULL)
+		return;
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -46,7 +48,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		temp = temp->prev;
 		printf("\n");
 	}
-	printf("%d", temp->n);
+	printf("%d\n", temp->n);
 }
 
 
@@ -57,60 +59,77 @@ void pall(stack_t **stack, unsigned int line_number)
 *
 * Return: No return
 */
-/*void pint(stack_t **stack, unsigned int line_number)
+void pint(stack_t **stack, unsigned int line_number)
 {
 
+	stack_t *temp = NULL;
 
+	if (stack == NULL)
+	{
+		tokerr(pint_e(line_number)); /*ed*/
+		return;
+	}
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
 
+	printf("%d", temp->n);
+	printf("\n");
+}
 
-
-}*/
-
-/*void push(stack_t **stack, unsigned int line_number)
+/**
+ * swap - Print the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ *
+ * Return: No return
+ */
+void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node;
-	stack_t *temp_node;
-	int i;
 
-	new_node = malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	stack_t *temp = NULL;
+	stack_t *temp2 = NULL;
+	stack_t *temp3 = NULL;
+	int j = 0;
+	int i = 0;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
+		tokerr(op_e(line_number, "swap"));
 		return;
 	}
-
-	if (token[1] == NULL)
-	{
+	if (stack == NULL)
 		return;
-	}
-
-	for (i = 0; token[1][i]; i++)
+	temp = *stack;
+	while (temp->next != NULL)
 	{
-		if (token[1][i] == '-' && i == 0)
-			continue;
-		if (token[1][i] < '0' || token[1][i] > '9')
-		{
-			return;
-		}
+		temp = temp->next;
+		i++;
 	}
-	new_node->n = atoi(token[1]);
-
-
-	if (check_opcode(*stack) == STACK)
+	temp2 = *stack;
+	while (j < (i - 1))
 	{
-		temp_node = (*stack)->next;
-		new_node->prev = *stack;
-		new_node->next = temp_node;
-		if (temp_node)
-			temp_node->prev = new_node;
-		(*stack)->next = new_node;
+		temp2 = temp2->next;
+		j++;
 	}
-	else
+	if (i >= 1)
 	{
-		temp_node = *stack;
-		while (temp_node->next)
-			temp_node = temp_node->next;
-		new_node->prev = temp_node;
-		new_node->next = NULL;
-		temp_node->next = new_node;
+		temp3 = temp2->prev;
+		temp2->prev = temp;
+		temp2->next = NULL;
+		temp->next = temp2;
+		temp->prev = temp3;
 	}
-	}*/
+}
+/**
+ * nop - does not do anything
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ *
+ * Return: No return
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}

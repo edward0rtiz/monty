@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * create_node_stackfirst - create a node stack.
+ * @stack: A pointer to top and bottom stack.
+ * @n: the value
+ * Return: the node
+ */
 stack_t *create_node_stackfirst(stack_t **stack, int n)
 {
 	stack_t *newnode_stack;
@@ -16,7 +22,12 @@ stack_t *create_node_stackfirst(stack_t **stack, int n)
 	return (newnode_stack);
 }
 
-
+/**
+ * create_node_stackend - create a node stack at end.
+ * @stack: A pointer to top and bottom stack.
+ * @n: the value
+ * Return: the node
+ */
 stack_t *create_node_stackend(stack_t **stack, int n)
 {
 	stack_t *newnode_stack;

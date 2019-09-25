@@ -47,40 +47,33 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* aux functions */
+/* main.c */
+int main(int argc, char **argv);
+
+/* node functions */
 stack_t *create_node_stackfirst(stack_t **stack, int n);
 stack_t *create_node_stackend(stack_t **stack, int n);
 void free_node_stack(stack_t **stack);
-int check_opcode(stack_t *stack);
+
+/* get_builtin */
+void *get_builtin(char *token, stack_t **stack, unsigned int line_number);
 
 /* builtins functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-/*void pint(stack_t **stack, unsigned int line_number);*/
-/* monty exe */
-int cmd_monty(FILE *fd);
-/* main.c */
-int main(int argc, char **argv);
-/* get_builtin */
-void *get_builtin(char *token, stack_t **stack, unsigned int line_number);
-/* aux tokens */
-void free_tok(void);
-unsigned int array_len(void);
-int no_line(char *line, char *delim);
-/* aux_str 
-int check_delim(char stream, char *delim);
-int wstrlen(char *str, char *delim);
-int wcounter(char *str, char *delim);
-char **strtow(char *str, char *delim);
-char *wnext(char *str, char *delim);
-*/
-/* aux_stack */
-/*int create_node_stack(stack_t **stack);*/
-void free_node_stack(stack_t **stack);
-int check_opcode(stack_t *stack);
+void pop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void div_m(stack_t **stack, unsigned int line_number);
+void mod_m(stack_t **stack, unsigned int line_number);
 
-stack_t *create_node_stackfirst(stack_t **stack, int n);
-stack_t *create_node_stackend(stack_t **stack, int n);
+
+
 
 /*error*/
 int stderr_usage(void);
@@ -88,6 +81,37 @@ int stderr_malloc(void);
 int stderr_fopen(char *fd);
 int stderr_unknown(char *opcode, unsigned int line_number);
 int stderr_int(unsigned int line_number);
+
+
+/* TEST F */
+
+void tokerr(int error_code);
+unsigned int array_len(void);
+char *get_int(int num);
+unsigned int abs_m(int);
+int len_buff_uint(unsigned int num, unsigned int base);
+void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
+int pop_e(unsigned int line_number);
+int pint_e(unsigned int line_number);
+int pchar_e(unsigned int line_number, char *msg);
+
+
+/* UNUSED F
+void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+int cmd_monty(FILE *fd);
+void free_tok(void);
+int check_delim(char stream, char *delim);
+int wstrlen(char *str, char *delim);
+int wcounter(char *str, char *delim);
+char **strtow(char *str, char *delim);
+char *wnext(char *str, char *delim);
+int create_node_stack(stack_t **stack);
+void free_node_stack(stack_t **stack);
+int no_line(char *line, char *delim);
+int check_opcode(stack_t *stack);
+*/
+
 
 
 #endif

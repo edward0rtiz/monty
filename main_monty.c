@@ -2,12 +2,19 @@
 
 char *token2 = NULL;
 
+/**
+ * main - entry point for the CLI program
+ * @argc: count of arguments passed to the program
+ * @argv: pointer to an array of char pointers to arguments
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
+ */
+
 int main(int argc, char **argv)
 {
 	FILE *fd = NULL;
 	char *line_buf = NULL;
 	char *token = NULL;
-       	size_t line_buf_size = 0;
+	size_t line_buf_size = 0;
 	int line_number = 0;
 	ssize_t line_size;
 	stack_t *stack = NULL;
