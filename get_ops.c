@@ -12,8 +12,12 @@ void *get_builtin(char *token, stack_t **stack, unsigned int line_number)
 		{ "pall", pall },
 		{ "pint", pint },
 		{ "swap", swap },
+<<<<<<< HEAD
 		{ "mul", mul},
 		{ "pchar", pchar},
+=======
+		{ "pop", pop },
+>>>>>>> 2dde274a0cc4316515158cbbe5726cde18896562
 		{ NULL, NULL }
 	};
 	int i;

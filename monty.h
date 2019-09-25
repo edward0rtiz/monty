@@ -67,6 +67,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+
 void pchar(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 
@@ -92,8 +93,9 @@ int pint_e(unsigned int line_number);
 int pchar_e(unsigned int line_number, char *msg);
 
 
-/* UNUSED F */
-/*
+/* UNUSED F
+void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
 int cmd_monty(FILE *fd);
 void free_tok(void);
 int check_delim(char stream, char *delim);
