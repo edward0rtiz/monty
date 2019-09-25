@@ -4,11 +4,13 @@ void *get_builtin(char *token, stack_t **stack, unsigned int line_number)
 {
 	instruction_t op_built[] = {
 		{ "push", push },
-		{ "pall", pall},
+		{ "pall", pall },
+		{ "pint", pint },
+		{ "swap", swap },
 		{ NULL, NULL }
 	};
 	int i;
-	  char *argumentos = NULL;
+	char *argumentos = NULL;
 	argumentos = token;
 
 	for (i = 0; op_built[i].opcode; i++)
