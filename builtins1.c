@@ -69,9 +69,10 @@ void pint(stack_t **stack, unsigned int line_number)
 		tokerr(pint_e(line_number)); /*ed*/
 		return;
 	}
-       	temp = *stack;
+	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
+
 	printf("%d", temp->n);
 	printf("\n");
 }
@@ -106,7 +107,7 @@ void swap(stack_t **stack, unsigned int line_number)
 		i++;
 	}
 	temp2 = *stack;
-	while(j < (i - 1))
+	while (j < (i - 1))
 	{
 		temp2 = temp2->next;
 		j++;

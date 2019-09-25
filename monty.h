@@ -67,9 +67,13 @@ void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
-
 void pchar(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void div_m(stack_t **stack, unsigned int line_number);
+void mod_m(stack_t **stack, unsigned int line_number);
+
+
+
 
 /*error*/
 int stderr_usage(void);
@@ -86,8 +90,7 @@ unsigned int array_len(void);
 char *get_int(int num);
 unsigned int abs_m(int);
 int len_buff_uint(unsigned int num, unsigned int base);
-void complete_buff(unsigned int num, unsigned int base,
-		   char *buff, int buff_size);
+void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size);
 int pop_e(unsigned int line_number);
 int pint_e(unsigned int line_number);
 int pchar_e(unsigned int line_number, char *msg);

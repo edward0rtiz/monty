@@ -26,7 +26,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		flag = 1;
 	}
 	temp2 = *stack;
-	while(j < (i - 1))
+	while (j < (i - 1))
 	{
 		temp2 = temp2->next;
 		j++;
@@ -45,4 +45,74 @@ void pop(stack_t **stack, unsigned int line_number)
 		temp = NULL;
 		return;
 	}
+}
+/**
+ * add - adds the top two elements of the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		tokerr(op_e(line_number, "add"));
+		return;
+	}
+	(*stack)->next->n += (*stack)->next->next->n;
+	pop(stack, line_number);
+}
+
+/**
+ * sub - subtracts the top e of stack from the 2nd top element of the stack.
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+
+void sub(stack_t **stack, unsigned int line_number)
+{
+
+	stack_t *temp = *stack;
+
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		tokerr(op_e(line_number, "sub"));
+		return;
+	}
+	(*stack)->next->next->n -= (*stack)->next->next->n;
+	pop(stack, line_number);
+}
+/**
+ * mul - Mul 2nd val from top of a stack_t by top value.
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+*/
+void mul(stack_t **stack, unsigned int line_number)
+{
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
+	{
+		tokerr(op_e(line_number, "mul"));
+		return;
+	}
+	(*stack)->next->next->n *= (*stack)->next->n;
+	pop(stack, line_number);
+}
+/**
+ * pchar - Print char.
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+
+	if ((*stack)->next == NULL)
+	{
+		tokerr(pchar_e(line_number, "stack empty"));
+		return;
+	}
+	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
+	{
+		tokerr(pchar_e(line_number, "value out of range"));
+		return;
+	}
+	printf("%c\n", (*stack)->next->n);
 }
