@@ -13,7 +13,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int n = 0;
 
 	if (token2 == NULL)
-		pint_e(line_number);
+		stderr_int(line_number);
 	if (!_isdigit() || stack == NULL)
 		stderr_int(line_number);
 	n = atoi(token2);
