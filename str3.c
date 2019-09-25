@@ -82,7 +82,7 @@ void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
 
 /**
  * _isdigit - Entry point
- *@token: charater to check
+ *
  * Return: if is digit  or not, return 1 else 0
  */
 int _isdigit(void)
