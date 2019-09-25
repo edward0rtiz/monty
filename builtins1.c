@@ -74,10 +74,14 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		return (EXIT_FAILURE);
 =======
 		tokerr(pint_e(line_number));
+=======
+		pint_e(line_number);
+>>>>>>> 9b425fa110cc685d9dfb8e682106223b3b808fbf
 		return;
 >>>>>>> c550f6139c4aa62f0bcb7a27baedab1e6ef564f1
 	}

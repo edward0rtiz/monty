@@ -20,14 +20,18 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 
 	if (argc != 2)
+<<<<<<< HEAD
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
+=======
+		stderr_usage();
+>>>>>>> 9b425fa110cc685d9dfb8e682106223b3b808fbf
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
-		return (stderr_fopen(argv[1]));
+		stderr_fopen(argv[1]);
 	line_size = getline(&line_buf, &line_buf_size, fd);
 	while (line_size >= 0)
 	{
