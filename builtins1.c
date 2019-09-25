@@ -15,8 +15,8 @@ void push(stack_t **stack, unsigned int line_number)
 	n = atoi(token2);
 	if ( n == 0 || stack == NULL)
 	{
-		tokerr(stderr_int(line_number));
-		return;
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		return (EXIT_FAILURE);
 	}
 	if (*stack  == NULL)
 	{
@@ -71,8 +71,8 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL)
 	{
-		tokerr(pint_e(line_number)); /*ed*/
-		return;
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		return (EXIT_FAILURE);
 	}
 	temp = *stack;
 	while (temp->next != NULL)
@@ -100,8 +100,9 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		tokerr(op_e(line_number, "swap"));
-		return;
+		fprintf(stderr, "L%u: can't %s, stack too short\n",
+			line_number, "swap");
+		return (EXIT_FAILURE);
 	}
 	if (stack == NULL)
 		return;
