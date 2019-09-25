@@ -73,17 +73,8 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		return (EXIT_FAILURE);
-=======
-		tokerr(pint_e(line_number));
-=======
 		pint_e(line_number);
->>>>>>> 9b425fa110cc685d9dfb8e682106223b3b808fbf
 		return;
->>>>>>> c550f6139c4aa62f0bcb7a27baedab1e6ef564f1
 	}
 	temp = *stack;
 	while (temp->next != NULL)
@@ -109,17 +100,8 @@ void swap(stack_t **stack, unsigned int line_number)
 	int j = 0;
 	int i = 0;
 
-<<<<<<< HEAD
-	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't %s, stack too short\n",
-			line_number, "swap");
-		return (EXIT_FAILURE);
-	}
-=======
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
->>>>>>> c550f6139c4aa62f0bcb7a27baedab1e6ef564f1
 	if (stack == NULL)
 		return;
 	temp = *stack;
