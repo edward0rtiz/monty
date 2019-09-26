@@ -26,6 +26,7 @@ int *get_builtin(char *token, stack_t **stack, unsigned int line_number)
 		{ "\n", nop },
 		{ " ", nop },
 		{ "/t", nop },
+		{ "pstr", pstr_t },
 		{ NULL, NULL }
 	};
 	int i, flag = 0;

@@ -190,3 +190,19 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+void pstr_t(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	(void)line_number;
+
+	temp = *stack;
+
+	while (temp && temp->n > 0 && temp->n < 128)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+
+	printf("\n");
+}
