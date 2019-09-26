@@ -97,17 +97,26 @@ void mod_m(stack_t **stack, unsigned int line_number)
  */
 void pstr_t(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *temp = NULL;
 	(void)line_number;
 
+	if (*stack == NULL || stack == NULL)
+		op_e(line_number, "add");
 	temp = *stack;
-
-	while (temp && temp->n > 0 && temp->n < 128)
-	{
-		printf("%c", temp->n);
+	while (temp->next != NULL)
 		temp = temp->next;
+	while (temp->prev != NULL)
+	{
+		if (temp->n > 0 && temp->n < 127)
+		{
+			printf("%c", temp->n);
+			temp = temp->prev;
+		}
+		else
+			temp = temp->prev;
+		if (temp->n <= 0 || temp->n >= 127)
+			break;
 	}
-
 	printf("\n");
 }
 /**

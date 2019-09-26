@@ -29,4 +29,5 @@ void free_globalvars(void)
 {
 	fclose(globalvar.fd);
 	free(globalvar.line_buf);
+	return;
 }
