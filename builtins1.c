@@ -110,7 +110,7 @@ void swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 	int i, j;
-	
+
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
 
