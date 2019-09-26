@@ -18,6 +18,7 @@ void stderr_usage(void)
 void stderr_malloc(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
+	free_globalvars();
 	exit(EXIT_FAILURE);
 }
 /**
@@ -37,8 +38,8 @@ void stderr_fopen(char *filename)
  */
 void stderr_int(unsigned int line_number)
 {
-	free_globalvars();
 	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+	free_globalvars();
 	exit(EXIT_FAILURE);
 }
 
@@ -50,7 +51,7 @@ void stderr_int(unsigned int line_number)
  */
 void stderr_unknown(char *token, unsigned int line_number)
 {
-	free_globalvars();
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
+	free_globalvars();
 	exit(EXIT_FAILURE);
 }

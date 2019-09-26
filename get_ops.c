@@ -7,7 +7,7 @@
  * @line_number: line of instructions
  * Return: Retunr the funtion
  */
-int *get_builtin(char *token, stack_t **stack, unsigned int line_number)
+int get_builtin(char *token, stack_t **stack, unsigned int line_number)
 {
 	instruction_t op_built[] = {
 		{ "push", push },

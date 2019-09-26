@@ -73,7 +73,7 @@ stack_t *create_node_stackend(stack_t **stack, int n);
 void free_node_stack(stack_t **stack);
 
 /* get_builtin */
-int *get_builtin(char *token, stack_t **stack, unsigned int line_number);
+int get_builtin(char *token, stack_t **stack, unsigned int line_number);
 /* builtins functions */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
