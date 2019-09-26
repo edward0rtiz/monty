@@ -103,6 +103,8 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "add");
 	temp = *stack;
+	if (temp->next == NULL && line_number == 1 && temp->n)
+		printf("\n");
 	while (temp->next != NULL)
 		temp = temp->next;
 	while (temp->prev != NULL)
@@ -117,7 +119,7 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 		if (temp->n <= 0 || temp->n >= 127)
 			break;
 	}
-	printf("%c\n", temp->n);
+	printf("\n");
 }
 /**
  * rotrl - rotate to left
