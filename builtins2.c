@@ -15,9 +15,13 @@ void pop(stack_t **stack, unsigned int line_number)
 	int i = 0, j = 0, flag = 0;
 
 	if (stack == NULL)
-		pop_e(line_number);
+	{
+		free_dlistint(*stack);
+		pop_e(line_number); }
 	if (*stack == NULL)
-		pop_e(line_number);
+	{
+		free_dlistint(*stack);
+		pop_e(line_number); }
 	temp = *stack;
 	while (temp->next != NULL)
 	{
@@ -59,8 +63,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "add"));
-		return;
+		op_e(line_number, "add");
 	}
 
 	temp = *stack;
@@ -103,8 +106,7 @@ void sub(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "sub"));
-		return;
+		op_e(line_number, "sub");
 	}
 	temp = *stack;
 	while (temp->next != NULL)
@@ -144,7 +146,7 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "mul"));
+		op_e(line_number, "mul");
 		return;
 	}
 
@@ -181,15 +183,14 @@ void mul(stack_t **stack, unsigned int line_number)
 void pchar(stack_t **stack, unsigned int line_number)
 {
 
-	if ((*stack)->next == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(pchar_e(line_number, "stack empty"));
+		pchar_e(line_number, "stack empty");
 		return;
 	}
-	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
-		tokerr(pchar_e(line_number, "value out of range"));
-		return;
+		pchar_e(line_number, "value out of range");
 	}
-	printf("%c\n", (*stack)->next->n);
+	printf("%c\n", (*stack)->n);
 }

@@ -8,7 +8,7 @@ unsigned int array_len(void)
 {
 	unsigned int token_len = 0;
 
-	while (token2[token_len])
+	while (globalvar.token2[token_len])
 		token_len++;
 	return (token_len);
 }
@@ -24,23 +24,23 @@ void tokerr(int error_status)
 
 	token_len = array_len();
 	new_token = malloc(sizeof(char *) * (token_len + 2));
-	if (!token2)
+	if (!globalvar.token2)
 	{
 		stderr_malloc();
 		return;
 	}
 	while (i < token_len)
 	{
-		new_token[i] = token2[i];
+		new_token[i] = globalvar.token2[i];
 		i++;
 	}
 	exit_str = get_int(error_status);
 	if (!exit_str)
 	{
-		free(token2);
+		free(globalvar.token2);
 		stderr_malloc();
 		return;
 	}
-	free(token2);
-	token2 = new_token;
+	free(globalvar.token2);
+	globalvar.token2 = new_token;
 }
