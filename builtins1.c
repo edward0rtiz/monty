@@ -12,11 +12,17 @@ void push(stack_t **stack, unsigned int line_number)
 
 	int n = 0;
 
-	if (token2 == NULL)
-		pint_e(line_number);
-	if (!_isdigit() || stack == NULL)
+	if (globalvar.token2 == NULL)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
-	n = atoi(token2);
+	}
+	if (!_isdigit() || stack == NULL)
+	{
+		free_dlistint(*stack);
+		stderr_int(line_number);
+	}
+	n = atoi(globalvar.token2);
 	if (*stack  == NULL)
 	{
 		create_node_stackfirst(stack, n);
@@ -40,11 +46,20 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 
 	if (stack == NULL)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
+	}
 	if (*stack == NULL && line_number == 1)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
+	}
 	if (*stack == NULL && line_number != 1)
+	{
+		free_dlistint(*stack);
 		exit(EXIT_SUCCESS);
+	}
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;

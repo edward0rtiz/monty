@@ -89,11 +89,11 @@ int _isdigit(void)
 {
 	int i = 0;
 
-	if (token2[0] == '-')
+	if (globalvar.token2[0] == '-')
 		i++;
-	while (token2)
+	while (globalvar.token2)
 	{
-		if (token2[i] >= '0' && token2[i] <= '9')
+		if (globalvar.token2[i] >= '0' && globalvar.token2[i] <= '9')
 			return (1);
 		else
 			return (0);
