@@ -104,13 +104,13 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 	{
 		printf("\n");
 		free_globalvars();
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	temp = *stack;
 	if (temp->next == NULL && line_number == 2 && temp->n < 0)
 	{
 		printf("\n");
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -128,7 +128,7 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 			printf("\n");
 			free_dlistint(*stack);
 			free_globalvars();
-			exit(EXIT_FAILURE);
+			exit(0);
 		}
 	}
 	printf("%c\n", temp->n);
