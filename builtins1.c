@@ -58,6 +58,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL && line_number != 1)
 	{
 		free_dlistint(*stack);
+		free_globalvars();
 		exit(EXIT_SUCCESS);
 	}
 	temp = *stack;
@@ -70,6 +71,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("\n");
 	}
 	printf("%d\n", temp->n);
+	return;
 }
 
 
@@ -117,7 +119,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
 	if (stack == NULL)
-		return;
+		op_e(line_number, "swap");
 	temp = *stack;
 	while (temp->next != NULL)
 	{
