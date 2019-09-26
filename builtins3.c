@@ -87,3 +87,24 @@ void mod_m(stack_t **stack, unsigned int line_number)
 		return;
 	}
 }
+
+/**
+ * pstr_t - prints the string starting at the top of the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void pstr_t(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	(void)line_number;
+
+	temp = *stack;
+
+	while (temp && temp->n > 0 && temp->n < 128)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+
+	printf("\n");
+}
