@@ -117,6 +117,8 @@ int _isdigit();
 void free_dlistint(stack_t *stack);
 void free_globalvars(void);
 void rotr(stack_t **stack, unsigned int line_number);
+stack_t *add_dnodeint(stack_t **head, int n);
+
 /* UNUSED F
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
