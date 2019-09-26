@@ -89,7 +89,7 @@ int _isdigit(void)
 {
 	int i = 0;
 
-	if (globalvar.token2[0] == '-')
+	if (globalvar.token2[0] == '-' || globalvar.token2[0] == '+')
 		i++;
 	while (globalvar.token2)
 	{
