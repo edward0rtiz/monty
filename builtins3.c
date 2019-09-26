@@ -144,9 +144,6 @@ void rotrl(stack_t **stack, unsigned int line_number)
 	stack_t *temp2;
 	int i = 0, j = 0;
 
-	if (*stack == NULL || (*stack)->next == NULL)
-		return;
-
 	temp = *stack;
 	temp2 = *stack;
 	while (temp->next != NULL)
