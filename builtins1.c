@@ -108,19 +108,19 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
-	int i, j;
+	int temp;
+	stack_t *copy;
 
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
-	if (stack == NULL)
-		op_e(line_number, "swap");
-
-	temp = (*stack)->next;
-	i = temp->n;
-	j = temp->next->n;
-	temp->n = j;
-	temp->next->n = i;
+	copy = *stack;
+	while ((*copy).next != NULL)
+	{
+		copy = (*copy).next;
+	}
+	temp = (**stack).n;
+	(**stack).n = (*(**stack).prev).n;
+	(*(**stack).prev).n = temp;
 }
 
 /**
