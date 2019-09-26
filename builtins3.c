@@ -142,21 +142,26 @@ void rotrl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 	stack_t *temp2;
+	int i = 0, j = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 
-	temp = (*stack)->next;
+	temp = *stack;
 	temp2 = *stack;
-
 	while (temp->next != NULL)
 	{
-		temp = temp->next->next;
+		temp = temp->next;
+		i++;
+	}
+	while (j < (i - 1))
+	{
+		temp2 = temp2->next;
+		j++;
 	}
 	temp->prev = NULL;
-	temp2->next = *stack;
-	(*stack)->next = NULL;
-	(*stack)->prev = temp2;
-	*stack = temp;
+	temp->next = (*stack)->next;
+	(*stack)->prev = temp;
+	temp2->next = NULL;
 	(void)line_number;
 }
