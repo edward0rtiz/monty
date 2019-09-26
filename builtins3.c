@@ -31,7 +31,7 @@ void div_m(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		op_e(line_number, "div");
+		free_dlistint(*stack), op_e(line_number, "div");
 	else
 	{
 		if (temp->n == 0)
@@ -77,7 +77,7 @@ void mod_m(stack_t **stack, unsigned int line_number)
 		j++;
 	}
 	if (i == 0 && flag == 0)
-		op_e(line_number, "mod");
+		free_dlistint(*stack), op_e(line_number, "mod");
 	else
 	{
 		if (temp->n == 0)
