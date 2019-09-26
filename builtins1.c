@@ -45,15 +45,10 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	stack_t *temp = NULL;
 
-	if (stack == NULL)
+
+	if (*stack == NULL)
 	{
-		free_dlistint(*stack);
-		stderr_int(line_number);
-	}
-	if (*stack == NULL && line_number == 1)
-	{
-		free_dlistint(*stack);
-		stderr_int(line_number);
+		return;
 	}
 	if (*stack == NULL && line_number != 1)
 	{
