@@ -100,10 +100,10 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "add");
-        temp = *stack;
-        while (temp->next != NULL)
+	temp = *stack;
+	while (temp->next != NULL)
 		temp = temp->next;
-        while (temp->prev != NULL)
+	while (temp->prev != NULL)
 	{
 		if (temp->n > 0 && temp->n < 127)
 		{
