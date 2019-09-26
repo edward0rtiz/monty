@@ -101,8 +101,13 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 
 	if (*stack == NULL || stack == NULL)
-		op_e(line_number, "add");
+	{
+		free_globalvars();
+		exit(EXIT_FAILURE);
+	}
 	temp = *stack;
+	if (temp->next == NULL && line_number == 1 && temp->n)
+		printf("\n");
 	while (temp->next != NULL)
 		temp = temp->next;
 	while (temp->prev != NULL)
