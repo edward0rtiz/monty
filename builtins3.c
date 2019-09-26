@@ -162,3 +162,24 @@ void rotrl(stack_t **stack, unsigned int line_number)
 	temp2->next = NULL;
 	(void)line_number;
 }
+/**
+ * rotr - rotate to left
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	stack_t *temp2;
+
+	temp = *stack;
+	temp2 = (*stack)->next;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+	(*stack)->next = NULL;
+	(*stack)->prev = temp;
+	temp2->prev = NULL;
+	(void)line_number;
+}
