@@ -65,7 +65,6 @@ void add(stack_t **stack, unsigned int line_number)
 	{
 		op_e(line_number, "add");
 	}
-
 	temp = *stack;
 	while (temp->next != NULL)
 	{
