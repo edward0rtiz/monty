@@ -18,6 +18,7 @@ void stderr_usage(void)
 void stderr_malloc(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
+	free_globalvars();
 	exit(EXIT_FAILURE);
 }
 /**
