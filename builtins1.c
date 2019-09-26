@@ -126,7 +126,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	temp->n = j;
 	temp->prev->n = i;
 }
-
 /**
  * nop - does not do anything
  * @stack: head of linkedlist
