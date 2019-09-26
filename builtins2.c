@@ -193,23 +193,3 @@ void pchar(stack_t **stack, unsigned int line_number)
 		pchar_e(line_number, "value out of range");
 	}
 	printf("%c\n", (*stack)->n);
-<<<<<<< HEAD
-=======
-}
-
-void pstr_t(stack_t **stack, unsigned int line_number)
-{
-	stack_t *temp;
-	(void)line_number;
-
-	temp = *stack;
-
-	while (temp && temp->n > 0 && temp->n < 128)
-	{
-		printf("%c", temp->n);
-		temp = temp->next;
-	}
-
-	printf("\n");
->>>>>>> a24e75134fe45d7f58c6c67bcc342401b830b097
-}
