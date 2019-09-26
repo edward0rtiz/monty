@@ -27,11 +27,7 @@ int get_builtin(char *token, stack_t **stack, unsigned int line_number)
 		{ " ", nop },
 		{ "/t", nop },
 		{ "pstr", pstr_t },
-<<<<<<< HEAD
 		{ "rotrl ", rotrl },
-=======
-		{ "rotrl ",rotrl },
->>>>>>> 6c9eea06e062932b32ae92f656924b2bec2d66be
 		{ NULL, NULL }
 	};
 	int i, flag = 0;
