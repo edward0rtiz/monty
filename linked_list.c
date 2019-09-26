@@ -14,7 +14,7 @@ stack_t *create_node_stackfirst(stack_t **stack, int n)
 		return (NULL);
 	newnode_stack = malloc(sizeof(stack_t));
 	if (newnode_stack == NULL)
-		return (NULL);
+		stderr_malloc();
 	newnode_stack->n = n;
 	newnode_stack->next = *stack;
 	newnode_stack->prev = NULL;
@@ -37,7 +37,7 @@ stack_t *create_node_stackend(stack_t **stack, int n)
 		return (NULL);
 	newnode_stack = malloc(sizeof(stack_t));
 	if (newnode_stack == NULL)
-		return (NULL);
+		stderr_malloc();
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
