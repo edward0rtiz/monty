@@ -109,11 +109,15 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 	printf("\n");
 }
 
+<<<<<<< HEAD
 /**
  * rotrl - rotate to left
  * @stack: head of linkedlist
  * @line_number: line number of the instruction
  */
+=======
+
+>>>>>>> 6c9eea06e062932b32ae92f656924b2bec2d66be
 void rotrl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
