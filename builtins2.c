@@ -195,7 +195,11 @@ void pchar(stack_t **stack, unsigned int line_number)
 	{
 		temp = temp->next;
 	}
+<<<<<<< HEAD
 	if (temp->n < 0 || temp->n > 127)
+=======
+	if (temp->n < 0 && temp->n > 127)
+>>>>>>> 6f06f0ff7823dbba9e4cc7216ed98639795db015
 	{
 		pchar_e(line_number, "value out of range");
 	}
