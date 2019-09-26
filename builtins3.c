@@ -87,3 +87,51 @@ void mod_m(stack_t **stack, unsigned int line_number)
 		return;
 	}
 }
+
+/**
+ * pstr_t - prints the string starting at the top of the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void pstr_t(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	(void)line_number;
+
+	temp = *stack;
+
+	while (temp && temp->n > 0 && temp->n < 128)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+
+	printf("\n");
+}
+/**
+ * rotrl - rotate to left
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void rotrl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	stack_t *temp2;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	temp = (*stack)->next;
+	temp2 = *stack;
+
+	while (temp->next != NULL)
+	{
+		temp = temp->next->next;
+	}
+	temp->prev = NULL;
+	temp2->next = *stack;
+	(*stack)->next = NULL;
+	(*stack)->prev = temp2;
+	*stack = temp;
+	(void)line_number;
+}

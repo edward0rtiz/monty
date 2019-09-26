@@ -182,14 +182,14 @@ void mul(stack_t **stack, unsigned int line_number)
 void pchar(stack_t **stack, unsigned int line_number)
 {
 
-	if ((*stack)->next == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
 		pchar_e(line_number, "stack empty");
 		return;
 	}
-	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		pchar_e(line_number, "value out of range");
 	}
-	printf("%c\n", (*stack)->next->n);
+	printf("%c\n", (*stack)->n);
 }

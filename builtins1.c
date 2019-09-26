@@ -71,7 +71,6 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("\n");
 	}
 	printf("%d\n", temp->n);
-	return;
 }
 
 
@@ -109,40 +108,21 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-
-	stack_t *temp = NULL;
-	stack_t *temp2 = NULL;
-	stack_t *temp3 = NULL;
-	int j = 0;
-	int i = 0;
+	stack_t *temp;
+	int i, j;
 
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
 	if (stack == NULL)
 		op_e(line_number, "swap");
-	temp = *stack;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		i++;
-	}
-	temp2 = *stack;
-	while (j < (i - 1))
-	{
-		temp2 = temp2->next;
-		j++;
-	}
-	if (i >= 1)
-	{
-		temp3 = temp2->prev;
-		temp2->prev = temp;
-		temp2->next = NULL;
-		temp->next = temp2;
-		temp->prev = temp3;
-	}
-	else
-		op_e(line_number, "swap");
+
+	temp = (*stack)->next;
+	i = temp->n;
+	j = temp->next->n;
+	temp->n = j;
+	temp->next->n = i;
 }
+
 /**
  * nop - does not do anything
  * @stack: head of linkedlist
