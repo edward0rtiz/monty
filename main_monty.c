@@ -26,15 +26,13 @@ int main(int argc, char **argv)
 	if (globalvar.line_buf[0] == '#')
 		line_size = getline(&globalvar.line_buf, &line_buf_size, globalvar.fd);
 	while (line_size >= 0)
-	{
-		flag = 0;
+	{flag = 0;
 		flag2 = 0;
 		line_number++;
 		token = strtok(globalvar.line_buf, DELIM);
 		globalvar.token2 = strtok(NULL, DELIM);
 		if (token == NULL)
-		{
-			flag2 = 1;
+		{flag2 = 1;
 			nop(&stack, line_number); }
 		if (flag2 == 0)
 		{
@@ -44,44 +42,12 @@ int main(int argc, char **argv)
 						    &line_buf_size, globalvar.fd);
 				flag = 1; }}
 		if (flag == 0)
-		{
-			get_builtin(token, &stack, line_number);
-			line_size = getline(&globalvar.line_buf, &line_buf_size, 
+		{get_builtin(token, &stack, line_number);
+			line_size = getline(&globalvar.line_buf, &line_buf_size,
 					    globalvar.fd); }}
 	free_dlistint(stack);
 	free(globalvar.line_buf);
 	globalvar.line_buf = NULL;
 	fclose(globalvar.fd);
 	return (EXIT_SUCCESS);
-}
-
-/**
- * free_dlistint - free a dlistint_t list.
- * @stack: pointer to the first element of the list
- * Return: no return
- */
-void free_dlistint(stack_t *stack)
-{
-	stack_t *aux = NULL;
-	stack_t *temp = NULL;
-
-	temp = stack;
-	while (temp != NULL)
-	{
-		aux = temp->next;
-		free(temp);
-		temp = aux;
-	}
-	stack = NULL;
-}
-
-/**
-* free_globalvars - free a dlistint_t list.
-*
-* Return: no return
-*/
-void free_globalvars(void)
-{
-	fclose(globalvar.fd);
-	free(globalvar.line_buf);
 }
