@@ -117,7 +117,7 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 		if (temp->n <= 0 || temp->n >= 127)
 			break;
 	}
-	printf("\n");
+	printf("%c\n", temp->n);
 }
 /**
  * rotrl - rotate to left
