@@ -88,6 +88,9 @@ void mul(stack_t **stack, unsigned int line_number);
 void div_m(stack_t **stack, unsigned int line_number);
 void mod_m(stack_t **stack, unsigned int line_number);
 void pstr_t(stack_t **stack, unsigned int line_number);
+void rotrl(stack_t **stack, unsigned int line_number);
+
+
 
 
 
