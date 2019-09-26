@@ -12,9 +12,17 @@ void push(stack_t **stack, unsigned int line_number)
 
 	int n = 0;
 
-	if (!_isdigit(token2) || stack == NULL)
+	if (globalvar.token2 == NULL)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
-	n = atoi(token2);
+	}
+	if (!_isdigit() || stack == NULL)
+	{
+		free_dlistint(*stack);
+		stderr_int(line_number);
+	}
+	n = atoi(globalvar.token2);
 	if (*stack  == NULL)
 	{
 		create_node_stackfirst(stack, n);
@@ -38,9 +46,21 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *temp = NULL;
 
 	if (stack == NULL)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
-	if (*stack == NULL)
+	}
+	if (*stack == NULL && line_number == 1)
+	{
+		free_dlistint(*stack);
 		stderr_int(line_number);
+	}
+	if (*stack == NULL && line_number != 1)
+	{
+		free_dlistint(*stack);
+		free_globalvars();
+		exit(EXIT_SUCCESS);
+	}
 	temp = *stack;
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -68,7 +88,7 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		tokerr(pint_e(line_number));
+		pint_e(line_number);
 		return;
 	}
 	temp = *stack;
@@ -88,40 +108,25 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-
-	stack_t *temp = NULL;
-	stack_t *temp2 = NULL;
-	stack_t *temp3 = NULL;
-	int j = 0;
-	int i = 0;
+	stack_t *temp;
+	int i, j;
 
 	if (*stack == NULL || stack == NULL)
 		op_e(line_number, "swap");
-	if (stack == NULL)
-		return;
-	temp = *stack;
+
+	temp = (*stack)->next;
+	if ((*stack)->next == NULL)
+		op_e(line_number, "swap");
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
-		i++;
 	}
-	temp2 = *stack;
-	while (j < (i - 1))
-	{
-		temp2 = temp2->next;
-		j++;
-	}
-	if (i >= 1)
-	{
-		temp3 = temp2->prev;
-		temp2->prev = temp;
-		temp2->next = NULL;
-		temp->next = temp2;
-		temp->prev = temp3;
-	}
-	else
-		op_e(line_number, "swap");
+	i = temp->n;
+	j = temp->prev->n;
+	temp->n = j;
+	temp->prev->n = i;
 }
+
 /**
  * nop - does not do anything
  * @stack: head of linkedlist

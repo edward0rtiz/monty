@@ -14,8 +14,7 @@ void div_m(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "div"));
-		return;
+		op_e(line_number, "div");
 	}
 
 	temp = *stack;
@@ -61,8 +60,7 @@ void mod_m(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || stack == NULL)
 	{
-		tokerr(op_e(line_number, "mod"));
-		return;
+		op_e(line_number, "mod");
 	}
 
 	temp = *stack;
@@ -82,10 +80,60 @@ void mod_m(stack_t **stack, unsigned int line_number)
 		op_e(line_number, "mod");
 	else
 	{
+		if (temp->n == 0)
+			div_e(line_number);
 		temp2->n = temp2->n % temp->n;
 		temp2->next = NULL;
 		free(temp);
 		temp = NULL;
 		return;
 	}
+}
+
+/**
+ * pstr_t - prints the string starting at the top of the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void pstr_t(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	(void)line_number;
+
+	temp = *stack;
+
+	while (temp && temp->n > 0 && temp->n < 128)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+
+	printf("\n");
+}
+/**
+ * rotrl - rotate to left
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ */
+void rotrl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	stack_t *temp2;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	temp = (*stack)->next;
+	temp2 = *stack;
+
+	while (temp->next != NULL)
+	{
+		temp = temp->next->next;
+	}
+	temp->prev = NULL;
+	temp2->next = *stack;
+	(*stack)->next = NULL;
+	(*stack)->prev = temp2;
+	*stack = temp;
+	(void)line_number;
 }
