@@ -15,7 +15,24 @@
 #define STACK 0
 #define DELIM " \n\t\a\b"
 
-extern char *token2;
+/**
+ * globales_s - struct with variable globals
+ * @token2: integer
+ * @fd: points to the previous element of the stack (or queue)
+ * @line_buf: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct globales_s
+{
+	char *token2;
+	FILE *fd;
+	char *line_buf;
+
+} globales_t;
+
+extern globales_t globalvar;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -94,7 +111,8 @@ void pop_e(unsigned int line_number);
 void pint_e(unsigned int line_number);
 void pchar_e(unsigned int line_number, char *msg);
 int _isdigit();
-
+void free_dlistint(stack_t *stack);
+void free_globalvars(void);
 /* UNUSED F
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);

@@ -15,9 +15,13 @@ void pop(stack_t **stack, unsigned int line_number)
 	int i = 0, j = 0, flag = 0;
 
 	if (stack == NULL)
-		pop_e(line_number);
+	{
+		free_dlistint(*stack);
+		pop_e(line_number); }
 	if (*stack == NULL)
-		pop_e(line_number);
+	{
+		free_dlistint(*stack);
+		pop_e(line_number); }
 	temp = *stack;
 	while (temp->next != NULL)
 	{
