@@ -193,3 +193,4 @@ void pchar(stack_t **stack, unsigned int line_number)
 		pchar_e(line_number, "value out of range");
 	}
 	printf("%c\n", (*stack)->n);
+}
