@@ -144,6 +144,8 @@ void rotrl(stack_t **stack, unsigned int line_number)
 	stack_t *temp2 = NULL;
 	stack_t *temp = NULL;
 
+	if (*stack == NULL || ((*stack)->next == NULL))
+		return;
 	temp2 = *stack;
 	temp = *stack;
 	while (temp2->next != NULL)
@@ -159,9 +161,18 @@ void rotrl(stack_t **stack, unsigned int line_number)
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-	create_node_stackend(stack, (**stack).n);
-	(*stack)->next = NULL;
-	free(stack);
+	stack_t *temp2 = NULL;
 	(void)line_number;
 
+	if (*stack == NULL || ((*stack)->next == NULL))
+		return;
+	temp2 = *stack;
+	while (temp2->next != NULL)
+		temp2 = temp2->next;
+	 temp2->next = *stack;
+	 (*stack)->prev = temp2;
+	 temp2 = (*stack)->next;
+	 (*stack)->next = NULL;
+	 *stack = temp2;
+	 (*stack)->prev = NULL;
 }
