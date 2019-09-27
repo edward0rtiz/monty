@@ -140,9 +140,16 @@ void pstr_t(stack_t **stack, unsigned int line_number)
  */
 void rotrl(stack_t **stack, unsigned int line_number)
 {
-	while ((*stack)->next != NULL)
-		*stack = (*stack)->next;
-	add_dnodeint(stack, (*stack)->n);
+
+	stack_t *temp2 = NULL;
+	stack_t *temp = NULL;
+
+	temp2 = *stack;
+	temp = *stack;
+	while (temp2->next != NULL)
+		temp2 = temp2->next;
+	add_dnodeint(&temp, temp2->n);
+	*stack = temp;
 	pop(stack, line_number);
 }
 /**
@@ -152,17 +159,9 @@ void rotrl(stack_t **stack, unsigned int line_number)
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
-	stack_t *temp2;
-
-	temp = *stack;
-	temp2 = (*stack)->next;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
+	create_node_stackend(stack, (**stack).n);
 	(*stack)->next = NULL;
-	(*stack)->prev = temp;
-	temp2->prev = NULL;
+	free(stack);
 	(void)line_number;
+
 }
