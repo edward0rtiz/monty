@@ -16,6 +16,25 @@
 #define DELIM " \n\t\a\b"
 
 /**
+ * globales_s - struct with variable globals
+ * @token2: integer
+ * @fd: points to the previous element of the stack (or queue)
+ * @line_buf: points to the next element of the stack (or queue)
+ *
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct globales_s
+{
+	char *token2;
+	FILE *fd;
+	char *line_buf;
+
+} globales_t;
+
+extern globales_t globalvar;
+
+/**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -30,27 +49,6 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
-
-
-/**
- * globales_s - struct with variable globals
- * @token2: integer
- * @fd: points to the previous element of the stack (or queue)
- * @line_buf: points to the next element of the stack (or queue)
- *
- * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
- */
-typedef struct globales_s
-{
-	char *token2;
-	FILE *fd;
-	char *line_buf;
-	stack_t *stacky;
-} globales_t;
-
-extern globales_t globalvar;
-
 
 /**
  * struct instruction_s - opcode and its function

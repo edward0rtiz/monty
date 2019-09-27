@@ -28,6 +28,5 @@ void free_dlistint(stack_t *stack)
 void free_globalvars(void)
 {
 	fclose(globalvar.fd);
-	free_dlistint(globalvar.stacky);
 	free(globalvar.line_buf);
 }
