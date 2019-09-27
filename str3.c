@@ -73,7 +73,7 @@ void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
 		rem = num % base;
 		if (rem > 9)
 			buff[i] = rem + 87;
-	else
+		else
 			buff[i] = rem + '0';
 		num /= base;
 		i--;
@@ -91,16 +91,12 @@ int _isdigit(void)
 
 	if (globalvar.token2[0] == '-' || globalvar.token2[0] == '+')
 		i++;
-	while (globalvar.token2)
+	while (globalvar.token2[i])
 	{
-		if ((globalvar.token2[i] >= '0' && (globalvar.token2[i + 1] >= '0'
-						    || globalvar.token2[i + 1] == '\0')) &&
-		    (globalvar.token2[i] <= '9' && (globalvar.token2[i + 1] <= '9'
-						    || globalvar.token2[i + 1] == '\0')))
-			return (1);
-		else
+
+		if (isdigit(globalvar.token2[i]) == 0)
 			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }

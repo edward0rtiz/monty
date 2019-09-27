@@ -50,10 +50,10 @@ void pchar_e(unsigned int line_number, char *msg)
 }
 
 /**
-* div_e - error for div by 0.
-* @line_number: line number of the instruction.
-* Return: EXIT_FAILURE
-*/
+ * div_e - error for div by 0.
+ * @line_number: line number of the instruction.
+ * Return: EXIT_FAILURE
+ */
 void div_e(unsigned int line_number)
 {
 	fprintf(stderr, "L%u: division by zero\n", line_number);
