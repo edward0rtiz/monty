@@ -140,27 +140,10 @@ void pstr_t(stack_t **stack, unsigned int line_number)
  */
 void rotrl(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
-	stack_t *temp2;
-	int i = 0, j = 0;
-
-	temp = *stack;
-	temp2 = *stack;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		i++;
-	}
-	while (j < (i - 1))
-	{
-		temp2 = temp2->next;
-		j++;
-	}
-	temp->prev = NULL;
-	temp->next = (*stack)->next;
-	(*stack)->prev = temp;
-	temp2->next = NULL;
-	(void)line_number;
+	while ((*stack)->next != NULL)
+		*stack = (*stack)->next;
+	add_dnodeint(stack, (*stack)->n);
+	pop(stack, line_number);
 }
 /**
  * rotr - rotate to left
