@@ -73,7 +73,7 @@ void full_buff(unsigned int num, unsigned int base, char *buff, int buff_size)
 		rem = num % base;
 		if (rem > 9)
 			buff[i] = rem + 87;
-	else
+		else
 			buff[i] = rem + '0';
 		num /= base;
 		i--;
