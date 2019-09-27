@@ -19,7 +19,7 @@ void pop_e(unsigned int line_number)
  */
 void pint_e(unsigned int line_number)
 {
-	fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+	fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 	free_globalvars();
 	exit(EXIT_FAILURE);
 }
