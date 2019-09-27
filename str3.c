@@ -93,7 +93,10 @@ int _isdigit(void)
 		i++;
 	while (globalvar.token2)
 	{
-		if (globalvar.token2[i] >= '0' && globalvar.token2[i] <= '9')
+		if ((globalvar.token2[i] >= '0' && (globalvar.token2[i + 1] >= '0'
+						    || globalvar.token2[i + 1] == '\0')) &&
+		    (globalvar.token2[i] <= '9' && (globalvar.token2[i + 1] <= '9'
+						    || globalvar.token2[i + 1] == '\0')))
 			return (1);
 		else
 			return (0);
