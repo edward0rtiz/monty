@@ -107,9 +107,11 @@ void pstr_t(stack_t **stack, unsigned int line_number)
 		exit(0);
 	}
 	temp = *stack;
-	if (temp->next == NULL && line_number == 2 && temp->n < 0)
+	if (temp->next == NULL && line_number == 2 && (temp->n < 0 || temp->n >= 127))
 	{
 		printf("\n");
+		free_dlistint(*stack);
+		free_globalvars();
 		exit(0);
 	}
 	while (temp->next != NULL)
@@ -150,9 +152,9 @@ void rotrl(stack_t **stack, unsigned int line_number)
 	temp = *stack;
 	while (temp2->next != NULL)
 		temp2 = temp2->next;
-	add_dnodeint(&temp, temp2->n);
+	add_dnodeint(stack, temp2->n);
 	*stack = temp;
-	pop(stack, line_number);
+	pop(&temp, line_number);
 }
 /**
  * rotr - rotate to left
