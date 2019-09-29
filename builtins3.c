@@ -145,16 +145,19 @@ void rotrl(stack_t **stack, unsigned int line_number)
 
 	stack_t *temp2 = NULL;
 	stack_t *temp = NULL;
+	(void)line_number;
 
 	if (*stack == NULL || ((*stack)->next == NULL))
 		return;
-	temp2 = *stack;
 	temp = *stack;
-	while (temp2->next != NULL)
-		temp2 = temp2->next;
-	add_dnodeint(stack, temp2->n);
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp2 = temp->prev;
+	temp2->next = NULL;
+	temp->prev = NULL;
+	temp->next = *stack;
+	(*stack)->prev = temp;
 	*stack = temp;
-	pop(&temp, line_number);
 }
 /**
  * rotr - rotate to left
