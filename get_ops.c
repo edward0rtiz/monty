@@ -25,7 +25,7 @@ int get_builtin(char *token, stack_t **stack, unsigned int line_number)
 		{ "mod", mod_m },
 		{ "\n", nop },
 		{ " ", nop },
-		{ "/t", nop },
+		{ "\t", nop },
 		{ "pstr", pstr_t },
 		{ "rotl", rotrl },
 		{ "rotr", rotr },

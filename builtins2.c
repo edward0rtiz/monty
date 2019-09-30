@@ -135,7 +135,7 @@ void sub(stack_t **stack, unsigned int line_number)
  * mul - Mul 2nd val from top of a stack_t by top value.
  * @stack: head of linkedlist
  * @line_number: line number of the instruction
-*/
+ */
 void mul(stack_t **stack, unsigned int line_number)
 {
 
