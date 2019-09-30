@@ -19,4 +19,3 @@ push 4$
     push 5    $
       push    6        $
 pall$
-karen@ubuntu:~/0x19-stacks_queues_lifo_fifo$

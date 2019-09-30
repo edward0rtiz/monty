@@ -34,12 +34,12 @@ void push(stack_t **stack, unsigned int line_number)
 }
 
 /**
-* pall - Print the stack
-* @stack: head of linkedlist
-* @line_number: line number of the instruction
-*
-* Return: No return
-*/
+ * pall - Print the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ *
+ * Return: No return
+ */
 void pall(stack_t **stack, unsigned int line_number)
 {
 
@@ -70,12 +70,12 @@ void pall(stack_t **stack, unsigned int line_number)
 
 
 /**
-* pint - Print the stack
-* @stack: head of linkedlist
-* @line_number: line number of the instruction
-*
-* Return: No return
-*/
+ * pint - Print the stack
+ * @stack: head of linkedlist
+ * @line_number: line number of the instruction
+ *
+ * Return: No return
+ */
 void pint(stack_t **stack, unsigned int line_number)
 {
 
